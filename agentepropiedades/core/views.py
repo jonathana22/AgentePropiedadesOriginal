@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.template import RequestContext
 
 # Create your views here.
 
@@ -7,3 +8,4 @@ def home (request):
 
 def nosotros (request):
     return render (request, 'core/nosotros.html')
+
