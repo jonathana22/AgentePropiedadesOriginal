@@ -1,0 +1,173 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block contenido %}
+<br>
+</br>
+ <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">publica tu propiedad</h2>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="form-row m-b-55">
+                            <div class="name">Propiedad</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="txtnombre" id="txtnombre">
+                                            <label class="label--desc">Nombre</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"> 
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="txtTipo" id="txtTipo">
+                                            <label class="label--desc">Tipo de Propiedad</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                            {% comment %} <div class="name">Propiedad</div> {% endcomment %}
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="txtoperacion" id="txtoperacion">
+                                            <label class="label--desc">Operacion</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="txtsuperficie" id="txtsuperficie">
+                                            <label class="label--desc">Superficie</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                            {% comment %} <div class="name">Propiedad</div> {% endcomment %}
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="txthabitaciones" id="txthabitaciones">
+                                            <label class="label--desc">Numero de Habitaciones</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="txtbannos" id="txtbannos">
+                                            <label class="label--desc">Numero de Baños</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Ubicacion</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="txtubicacion" id="txtubicacion">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Precio</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="number" name="txtprecio" id="txtprecio">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Descripcion</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="txtdescripcion" id="txtdescripcion">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Imagen Portada</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="file" name="imgane" id="imgane">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Imagenes Galeria</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input multiple class="input--style-5" type="file" name="fotogaleria" id="fotogaleria">
+                                </div>
+                            </div>
+                        </div>
+                        {% comment %} <div class="form-row m-b-55">
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="area_code">
+                                            <label class="label--desc">Area Code</label>
+                                        </div>
+                                    </div>
+                                   <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="phone">
+                                            <label class="label--desc">Phone Number</label>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-row">
+                            <div class="name">Subject</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="subject">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option>Subject 1</option>
+                                            <option>Subject 2</option>
+                                            <option>Subject 3</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-row p-t-20">
+                            <label class="label label--block">Are you an existing customer?</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">Yes
+                                    <input type="radio" checked="checked" name="exist">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">No
+                                    <input type="radio" name="exist">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div> {% endcomment %}
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Publicar</button>
+                        </div>
+                    </form>
+
+                    <h3>{{ mensaje }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

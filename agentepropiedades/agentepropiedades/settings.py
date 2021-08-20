@@ -26,7 +26,7 @@ SECRET_KEY = '%j!pipkvb@$1(eee9by!frpb&83==cmk&n=t(at9zn+ml1(cw6'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+MESSAE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Application definition
 
@@ -119,3 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"media")
