@@ -1,6 +1,9 @@
+
 from django.shortcuts import redirect, render
 from .models import Galeria, Propiedad
 from django.contrib import messages
+from django.template import RequestContext
+
 
 # Create your views here.
 
@@ -9,6 +12,7 @@ def home (request):
 
 def nosotros (request):
     return render (request, 'core/nosotros.html')
+
 
 def agregar(request):
     propiedades = Propiedad.objects.all() 
@@ -42,3 +46,4 @@ def agregar(request):
             variables['mensaje'] = 'No se pudo guardar la propiedad'
 
     return render (request, 'core/agregar.html', variables)
+

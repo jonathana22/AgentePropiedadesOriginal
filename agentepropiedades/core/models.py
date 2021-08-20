@@ -1,6 +1,9 @@
 from django.db import models
 
+
 # Create your models here.
+
+
 
 class Propiedad(models.Model):
     nombre = models.CharField(max_length=30)
@@ -25,3 +28,15 @@ class Galeria(models.Model):
 
     def __str__(self):
         return self.propiedad.nombre
+
+
+
+
+class Cliente(models.Model):
+    rut = models.CharField(max_length=12)
+    nombreCliente = models.CharField(max_length=10)
+    primerApellido = models.CharField(max_length=20)
+    segundoApellido = models.CharField(max_length=20)
+    fecNac = models.DateTimeField
+    direccion = models.TextField(max_length=100)
+

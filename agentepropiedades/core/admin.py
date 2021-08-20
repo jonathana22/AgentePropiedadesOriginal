@@ -20,4 +20,5 @@ class GaleriaAdmin(admin.ModelAdmin):
     list_display=["propiedad"]
     pass
 
+
 admin.site.register(Propiedad, PropiedadAdmin)
