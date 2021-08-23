@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block contenido%}
+
+<body>
+{% load humanize %}
+<div class="propiedad">|
+  {% for p in propiedades%}
+  <div class="propiedad">
+    <div class="card" style="width: 18rem;">
+      {% if p.imgane %}
+      <img src="{{p.imgane.url}}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <H2 class="operacion">{{p.operacion}}</h2>
+        <h5 class="card-title">{{p.nombre}}</h5>
+        <p class="card-text">{{p.descripcion}}</p>
+        <p class="card-text"> Direccion: {{p.ubicacion}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Baños {{p.banno}}</li>
+          <li class="list-group-item">Habitaciones {{p.habitaciones}}</li>
+          <li class="list-group-item">Superficie {{p.superficie}} mts cuadrados </li>
+          <li class="list-group-item">Valor ${{p.precio|intcomma}} CLP</li>
+        </ul>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </body>
+
+{% endblock%}

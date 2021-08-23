@@ -6,7 +6,10 @@ from django.template import RequestContext
 
 
 # Create your views here.
-
+def home2(request):
+    propiedades = Propiedad.objects.all()
+    data = {'propiedades':propiedades}
+    return render(request,'core/mostrar.html', data)
 def home (request):
     return render( request, 'core/home.html')
 
