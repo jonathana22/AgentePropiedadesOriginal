@@ -3,15 +3,26 @@ from django.shortcuts import redirect, render
 from .models import Galeria, Propiedad
 from django.contrib import messages
 from django.template import RequestContext
-
+from django.shortcuts import render, get_object_or_404
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def home2(request):
     propiedades = Propiedad.objects.all()
     data = {'propiedades':propiedades}
     return render(request,'core/mostrar.html', data)
+
 def home (request):
-    return render( request, 'core/home.html')
+    propiedades = Propiedad.objects.all()
+    data = {'propiedades':propiedades}
+    if request.method=="POST":
+        subject=request.POST["txtnombre"]
+        message=request.POST["txtemail"]+ " " + request.POST["txtMensaje"]
+        email_from=settings.EMAIL_HOST_USER
+        recipient_list=["cristianpezoa.ar@gmail.com"]
+        send_mail(subject, message, email_from, recipient_list)
+    return render( request, 'core/home.html', data)
 
 def nosotros (request):
     return render (request, 'core/nosotros.html')
