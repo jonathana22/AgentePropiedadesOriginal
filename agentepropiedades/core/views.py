@@ -6,21 +6,21 @@ from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import JsonResponse
+from django.shortcuts import render
 
 # Create your views here.
-def home2(request):
-    propiedades = Propiedad.objects.all()
-    data = {'propiedades':propiedades}
-    return render(request,'core/mostrar.html', data)
+
 
 def home (request):
     propiedades = Propiedad.objects.all()
+    galeria = Galeria.objects.all()
     data = {'propiedades':propiedades}
     if request.method=="POST":
         subject=request.POST["txtnombre"]
         message=request.POST["txtemail"]+ " " + request.POST["txtMensaje"]
         email_from=settings.EMAIL_HOST_USER
-        recipient_list=["cristianpezoa.ar@gmail.com"]
+        recipient_list=["c"]
         send_mail(subject, message, email_from, recipient_list)
     return render( request, 'core/home.html', data)
 
@@ -32,6 +32,7 @@ def agregar(request):
     propiedades = Propiedad.objects.all() 
     variables = {
         'propiedades':propiedades
+       
     }
     if request.POST:
         propiedad = Propiedad()
@@ -45,14 +46,20 @@ def agregar(request):
         propiedad.precio = request.POST.get('txtprecio')
         propiedad.descripcion = request.POST.get('txtdescripcion')
         propiedad.imgane = request.FILES.get('imgane')
-      
-        """  galeria = Galeria()
+        galeria = Galeria()
+        galeria.foto_galeria = request.FILES.getlist('fotogaleria1')
         
-        for n in galeria:
-            galeria[n] = request.FILES.getlist('fotogaleria') 
-            galeria.save()
-        return redirect('galeria')  
-  """
+        """ for foto_galeria in galeria:
+            galeria. objects.create(foto_galeria=foto_galeria)
+
+        imagenesGaleria = Galeria.objects.all()
+        return JsonResponse({"fotogaleria1": [{"url":foto_galeria.foto}])
+ """
+            
+            
+
+        
+
         try:
             propiedad.save()
             variables['mensaje'] = 'Guardado correctamente'
@@ -60,4 +67,8 @@ def agregar(request):
             variables['mensaje'] = 'No se pudo guardar la propiedad'
 
     return render (request, 'core/agregar.html', variables)
+
+
+def mostrar (request):
+    return render (request, 'core/mostrar.html')
 
