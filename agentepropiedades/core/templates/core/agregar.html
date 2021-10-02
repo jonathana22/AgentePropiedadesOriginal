@@ -15,7 +15,7 @@
                     <h2 class="title">publica tu propiedad</h2>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form method='POST' action=""  enctype="multipart/form-data">
                     {% csrf_token %}
                         <div class="form-row m-b-55">
                             <div class="name">Propiedad</div>
@@ -103,49 +103,12 @@
                             <div class="name">Imagen Portada</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="file" name="imgane" id="imgane">
+                                    <input class="input--style-5" type="file" name="images" id="images" multiple>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="name">Imagenes Galeria</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input multiple class="input--style-5" type="file" name="fotogaleria1" id="fotogaleria1">
-                                </div>
-                            </div>
-                        </div>
-                        {% comment %} <div class="form-row">
-                            <div class="name">Imagenes Galeria</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="file" name="fotogaleria2" id="fotogaleria2">
-                                </div>
-                            </div>
-                        </div><div class="form-row">
-                            <div class="name">Imagenes Galeria</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="file" name="fotogaleria3" id="fotogaleria3">
-                                </div>
-                            </div>
-                        </div><div class="form-row">
-                            <div class="name">Imagenes Galeria</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="file" name="fotogaleria4" id="fotogaleria4">
-                                </div>
-                            </div>
-                        </div>
-                        </div><div class="form-row">
-                            <div class="name">Imagenes Galeria</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="file" name="fotogaleria5" id="fotogaleria5">
-                                </div>
-                            </div>
-                        </div>
-                     {% endcomment %}
+                        
+                    
                         {% comment %} <div class="form-row m-b-55">
                             <div class="name">Phone</div>
                             <div class="value">

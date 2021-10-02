@@ -1,6 +1,5 @@
-
 from django.shortcuts import redirect, render
-from .models import Galeria, Propiedad
+from .models import Galeria, Propiedad , gallery
 from django.contrib import messages
 from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
@@ -45,30 +44,53 @@ def agregar(request):
         propiedad.ubicacion = request.POST.get('txtubicacion')
         propiedad.precio = request.POST.get('txtprecio')
         propiedad.descripcion = request.POST.get('txtdescripcion')
-        propiedad.imgane = request.FILES.get('imgane')
-        galeria = Galeria()
-        galeria.foto_galeria = request.FILES.getlist('fotogaleria1')
-        
-        """ for foto_galeria in galeria:
-            galeria. objects.create(foto_galeria=foto_galeria)
+        propiedad = request.FILES.getlist('imgane')
 
-        imagenesGaleria = Galeria.objects.all()
-        return JsonResponse({"fotogaleria1": [{"url":foto_galeria.foto}])
- """
+        for imgane in propiedad:
+            Propiedad.objects.create(imgane = imgane)
+
+        uploaded_images = Propiedad.objects.all()
             
-            
-
-        
-
         try:
             propiedad.save()
             variables['mensaje'] = 'Guardado correctamente'
         except:
             variables['mensaje'] = 'No se pudo guardar la propiedad'
-
+        return JsonResponse({"images": [{"url": imgane.imgane.url} for imgane in uploaded_images]}) 
     return render (request, 'core/agregar.html', variables)
 
 
 def mostrar (request):
     return render (request, 'core/mostrar.html')
 
+""" def handleMultipleImagesUpload(request):
+    if request.method == "POST":
+        images = request.FILES.getlist('images')
+
+        for imgane in images:
+            Propiedad.objects.create(imgane = imgane)
+
+        uploaded_images = Propiedad.objects.all()
+        return JsonResponse({"images": [{"url": imgane.imgane.url} for imgane in uploaded_images]})
+    return render(request, "core/index2.html") """
+
+def handleMultipleImagesUpload(request):
+    if request.method == "POST":
+        data = request.POST
+        images = request.FILES.getlist('images')
+ 
+        for imgane in images:
+            Propiedad.objects.create(
+            nombre=data['txtnombre'],
+            tipo=data['txtTipo'],
+            operacion=data['txtoperacion'],
+            superficie=data['txtsuperficie'],
+            habitaciones=data['txthabitaciones'],
+            banno=data['txtbannos'],
+            ubicacion=data['txtubicacion'],
+            precio=data['txtprecio'],
+            descripcion=data['txtdescripcion'],
+            imgane = imgane,)
+       
+    
+    return render(request, "core/agregar.html")

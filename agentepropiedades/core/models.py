@@ -20,7 +20,20 @@ class Propiedad(models.Model):
     def __str__(self):
         return self.nombre
 
+class Propiedad2(models.Model):
+    nombre2 = models.CharField(max_length=30)
+    tipo2 = models.CharField(max_length=15)
+    operacion2 = models.CharField(max_length=15)
+    superficie2 = models.IntegerField()
+    habitaciones2 = models.IntegerField()
+    banno2 = models.IntegerField()
+    ubicacion2 = models.TextField()
+    precio2 = models.IntegerField()
+    descripcion2 = models.TextField()
+    imagen = models.ImageField(null=False, blank=False)
 
+    def __str__(self):
+        return self.nombre
 
 class Galeria(models.Model):
     propiedad = models.ForeignKey(Propiedad, default=None, on_delete=models.CASCADE)
@@ -40,3 +53,5 @@ class Cliente(models.Model):
     fecNac = models.DateTimeField
     direccion = models.TextField(max_length=100)
 
+class gallery(models.Model):
+    image = models.ImageField()

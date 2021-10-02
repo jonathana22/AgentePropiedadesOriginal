@@ -30,7 +30,11 @@
         <![endif]-->
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="80">
-
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <input type="file" name="images" multiple>
+          <button type="submit">Send</button>
+        </form>  
 
         <!-- Static navbar -->
         <nav class="navbar navbar-default navbar-fixed-top before-color">

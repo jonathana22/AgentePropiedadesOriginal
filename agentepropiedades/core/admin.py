@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Propiedad, Galeria
+from .models import Propiedad, Galeria , gallery ,Propiedad2
 
 # Register your models here.
 
@@ -19,6 +19,5 @@ class PropiedadAdmin(admin.ModelAdmin):
 class GaleriaAdmin(admin.ModelAdmin):
     list_display=["propiedad"]
     pass
-
 
 admin.site.register(Propiedad, PropiedadAdmin)

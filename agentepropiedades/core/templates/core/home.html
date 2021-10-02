@@ -50,15 +50,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!--<a class="navbar-brand alo" href="index.html">Bonativo</a>-->
-                <img src="{% static 'core/img/portalAgenteLogo2.jpg' %}" alt="">
+                <img src="{% static 'core/img/portalAgenteLogo2.png' %}" alt="">
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right scroll-to">
-                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    <li class=""><a href="{% url 'home' %}">Home</a></li>
                     <!--<li><a href="{% url 'nosotros' %}">nosotros</a></li>-->
                     <!--<li><a href="#services">Services</a></li>-->
                     <li><a href="#work">Nuestras Propiedades</a></li>
-                    <li><a href="{% url 'agregar'%}">Publica tu Propiedad</a></li>
+                    <li><a href="{% url 'upload'%}">Publica tu Propiedad</a></li>
                     <li><a href="#contact">Contacto</a></li>
                     {% comment %} <li><a href="post-single.html">Blog Post</a></li> {% endcomment %}
                     {% comment %} <li class="dropdown">

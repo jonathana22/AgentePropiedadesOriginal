@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'agentepropiedades.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'portal_agente',
+        'NAME':'prop',
         'USER':'root',
-        'PASSWORD':'cristian',
+        'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'',
 
